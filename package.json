@@ -3,7 +3,10 @@
   "version": "0.1.1",
   "description": "Implementations for registrars and local resolvers for the Ethereum Name Service",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "all": "npm-run-all --parallel watch sync",
+    "watch": "webpack --watch",
+    "sync": "browser-sync start -s build -f build"
   },
   "repository": {
     "type": "git",
@@ -27,6 +30,8 @@
     "scrypt": "^6.0.3",
     "truffle-contract": "^2.0.1",
     "truffle-hdwallet-provider": "0.0.3",
-    "web3": "^0.19.1"
+    "web3": "^0.19.1",
+     "browser-sync": "^2.18.12",
+     "webpack": "^2.6.1"
   }
 }
