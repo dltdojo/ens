@@ -9,10 +9,46 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="ddj.js"></script>
 </head>
+
 <body ng-app="myApp" ng-controller="MyController">
     <div class="jumbotron text-center">
         <h2>{{hello}}</h2>
         <h2>ACCOUNT: {{account}}</h2>
+        <h3>查詢.ddj名稱持有人，請輸入全部名稱如eth.ddj</h3>
+        <div style="padding:2em;" class="row">
+            <div class="col-lg-4">
+                <div class="input-group">
+                    <span class="input-group-addon">全名(例:eth.ddj)</span>
+                    <input type="text" ng-model="findOwnerName" class="form-control">
+                </div>
+            </div>
+            <div class="col-lg-1">
+                <button type="button" class="btn btn-default" ng-click="findOwner()">查詢</button>
+            </div>
+            <div class="col-lg-4">
+                所有人: {{findOwnerResult}}
+            </div>
+        </div>
+        <hr>
+        <h3>註冊名稱只要輸入名稱不要加上.ddj</h3>
+        <div style="padding:2em;" class="row">
+            <div class="col-lg-4">
+                <div class="input-group">
+                    <span class="input-group-addon">名稱(例:foo)</span>
+                    <input type="text" ng-model="registerName" class="form-control">
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="input-group">
+                    <span class="input-group-addon">持有人帳戶</span>
+                    <input type="text" ng-model="registerAccount" class="form-control">
+                </div>
+            </div>
+            <div class="col-lg-1">
+                <button type="button" class="btn btn-default" ng-click="register()">註冊</button>
+            </div>
+        </div>
+        <hr>
         <h4>sources: <a href="https://github.com/dltdojo/ens/src">dltdojo/ens</a></h4>
     </div>
 </body>
