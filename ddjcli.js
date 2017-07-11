@@ -1,20 +1,20 @@
-const Web3 = require('web3');
-const HDWalletProvider = require('truffle-hdwallet-provider')
-const mnemonic = process.env.TEST_MNEMONIC
-const provider = new HDWalletProvider(mnemonic, 'https://rinkeby.infura.io/')
-const contract = require('truffle-contract')
 const ENS = require('./build/contracts/ENS.json')
 const FIFSRegistrar = require('./build/contracts/FIFSRegistrar.json')
 const PublicResolver = require('./build/contracts/PublicResolver.json')
+const contract = require('truffle-contract')
 const ens = contract(ENS)
 const registrar = contract(FIFSRegistrar)
 const resolver = contract(PublicResolver)
+const namehash = require('eth-ens-namehash')
+
+const HDWalletProvider = require('truffle-hdwallet-provider')
+const mnemonic = process.env.TEST_MNEMONIC
+const provider = new HDWalletProvider(mnemonic, 'https://rinkeby.infura.io/')
+const Web3 = require('web3');
 const web3 = new Web3(provider)
 ens.setProvider(provider)
 registrar.setProvider(provider)
 resolver.setProvider(provider)
-
-const namehash = require('eth-ens-namehash');
 
 function getAccounts(param){
     return new Promise(function(resolve,reject){
@@ -61,7 +61,7 @@ async function setAddr(nodeName, address){
     console.log(tx)
 }
 
-async function getAddr(nodeName, address){
+async function getAddr(nodeName){
     let ensInstance = await getEnsInstance()
     let node = namehash(nodeName)
     let resolverAddr = await ensInstance.resolver(node)

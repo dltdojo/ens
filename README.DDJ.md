@@ -69,10 +69,16 @@ Saving artifacts...
 ```
 $ truffle compile
 $ export TEST_MNEMONIC="rinkeby foo bar blah ..."
-$ node ddj.js
+$ node ddjcli.js
 ENS.owner(namehash('y12.ddj'))= 0x7f36a05a8c81d6a89b282b333696e9274b3f43f0
 ENS.resolver(namehash('y12.ddj'))= 0xccd16a2c1f623476f439975f5bad4fdd685aafb7
 ENS.owner(namehash('ddj'))= 0x664bdd2718237df5f6dfba665a613b42a4b78e26
 ENS.owner(namehash('eth.ddj'))= 0x0000000000000000000000000000000000000000
 Resolver.addr(namehash('y12.ddj'))= 0x7f36a05a8c81d6a89b282b333696e9274b3f43f0
+```
+
+### dapp test
+
+```
+$ npm run all
 ```

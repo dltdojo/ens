@@ -5,8 +5,8 @@
   "scripts": {
     "test": "mocha",
     "all": "npm-run-all --parallel watch sync",
-    "watch": "webpack --watch",
-    "sync": "browser-sync start -s build -f build"
+    "watch": "webpack --display-error-details --watch",
+    "sync": "browser-sync start -s webroot -f webroot"
   },
   "repository": {
     "type": "git",
@@ -24,14 +24,15 @@
   },
   "devDependencies": {
     "async": "^2.5.0",
+    "browser-sync": "^2.18.12",
     "eth-ens-namehash": "^1.0.2",
     "ethereumjs-testrpc": "^3.9.2",
     "mocha": "^3.2.0",
+    "npm-run-all": "^4.0.2",
     "scrypt": "^6.0.3",
     "truffle-contract": "^2.0.1",
     "truffle-hdwallet-provider": "0.0.3",
     "web3": "^0.19.1",
-     "browser-sync": "^2.18.12",
-     "webpack": "^2.6.1"
+    "webpack": "^2.6.1"
   }
 }
